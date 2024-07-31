@@ -222,7 +222,7 @@ export default function Scan() {
           </div>
         )}
       </div>
-      <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-[33%] h-[80vh] flex flex-col mt-3">
+      <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-[33%] h-[80vh] flex flex-col">
         <h2 className="text-xl font-bold mb-4">Present Students</h2>
         {studentsList.length > 0 ? (
           <ul className="flex-grow overflow-auto">
