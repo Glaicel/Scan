@@ -4,11 +4,12 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import supabase from '@/app/supabase';
 import {useRouter} from 'next/navigation'
+import { User } from '@supabase/supabase-js';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
   const router = useRouter(); // Initialize useRouter
   
   useEffect(() => {
