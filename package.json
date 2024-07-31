@@ -1,0 +1,34 @@
+{
+  "name": "scan-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.44.4",
+    "@svgr/webpack": "^8.1.0",
+    "@types/lodash": "^4.17.7",
+    "lodash": "^4.17.21",
+    "next": "14.2.5",
+    "next-qrcode": "^2.5.1",
+    "qr-scanner": "^1.4.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-qr-code": "^2.0.15",
+    "react-qr-scanner": "^1.0.0-alpha.11"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
