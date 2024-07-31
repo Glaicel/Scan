@@ -164,33 +164,33 @@ export default function Scan() {
 
   return (
     <div className='bg-gray-100'>
-      <Navbar />
-      <div className="flex space-x-4 p-5 max-w-6xl mx-auto mt-5">
-        <div className="bg-white shadow-md rounded-xl p-5 w-[33%] h-[80vh] relative">
-          <video
-            ref={videoEl}
-            className="w-full h-full object-cover rounded-xl"
-            autoPlay
+    <Navbar />
+    <div className="flex flex-col md:flex-row space-x-0 md:space-x-4 p-5 max-w-6xl mx-auto mt-5">
+      <div className="bg-white shadow-md rounded-xl p-5 w-full md:w-[33%] h-[80vh] relative">
+        <video
+          ref={videoEl}
+          className="w-full h-full object-cover rounded-xl"
+          autoPlay
+        />
+        <div
+          ref={qrBoxEl}
+          className="absolute top-0 left-0 w-full h-full flex items-center justify-center"
+        >
+          <img
+            src={qrFrame}
+            className="w-70 h-70"
           />
-          <div
-            ref={qrBoxEl}
-            className="absolute top-0 left-0 w-full h-full flex items-center justify-center"
-          >
-            <img
-              src={qrFrame}
-              className="w-70 h-70"
-            />
-          </div>
-          {scannedResult && (
-            <p className="absolute top-0 left-0 z-50 bg-white text-black p-2 rounded-md">
-              Scanned Result: {scannedResult}
-            </p>
-          )}
         </div>
-        
-        <div className="bg-white shadow-md rounded-xl p-6 w-[33%] h-[80vh]">
+        {scannedResult && (
+          <p className="absolute top-0 left-0 z-50 bg-white text-black p-2 rounded-md">
+            Scanned Result: {scannedResult}
+          </p>
+        )}
+      </div>
+      
+      <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-[33%] h-[80vh]">
         <h2 className="text-xl font-bold mb-4">Select Attendance Type</h2>
-          <div className="flex flex-row mb-4">
+        <div className="flex flex-row mb-4">
           <div className="flex items-center mr-4">
             <input
               type="radio"
@@ -213,36 +213,36 @@ export default function Scan() {
             />
             <label htmlFor="time_out" className="ml-2">Time Out</label>
           </div>
-          </div>
-          {/* Present Students section */}
-          {/* <h2 className="text-xl font-bold mb-4">Present Students</h2> */}
-          {studentInfo && (
-            <div>
-              <p><strong>Name:</strong> {studentInfo.name}</p>
-              <p><strong>Email:</strong> {studentInfo.email}</p>
-              <p><strong>Attendance Status:</strong> Present</p>
-            </div>
-          )}
         </div>
-        <div className="bg-white shadow-md rounded-xl p-6 w-[33%] h-[80vh] flex flex-col">
-          <h2 className="text-xl font-bold mb-4">Present Students</h2>
-          {studentsList.length > 0 ? (
-            <ul className="flex-grow overflow-auto">
-              {studentsList.map((student, index) => (
-                <li key={index} className="border-b py-2">
-                  <p><strong>Name:</strong> {student.name}</p>
-                  <p><strong>Email:</strong> {student.email}</p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No students scanned yet</p>
-          )}
-          <button
-            className="bg-blue-500 text-white p-2 rounded-md mt-4"
-            onClick={handleSaveAttendance}
-            disabled={studentsList.length === 0 || attendanceType === null} // Disable if no students or attendance type is not selected
-          >{isLoading ? (
+        {studentInfo && (
+          <div>
+            <p><strong>Name:</strong> {studentInfo.name}</p>
+            <p><strong>Email:</strong> {studentInfo.email}</p>
+            <p><strong>Attendance Status:</strong> Present</p>
+          </div>
+        )}
+      </div>
+      
+      <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-[33%] h-[80vh] flex flex-col space-y-2">
+        <h2 className="text-xl font-bold mb-4">Present Students</h2>
+        {studentsList.length > 0 ? (
+          <ul className="flex-grow overflow-auto">
+            {studentsList.map((student, index) => (
+              <li key={index} className="border-b py-2">
+                <p><strong>Name:</strong> {student.name}</p>
+                <p><strong>Email:</strong> {student.email}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No students scanned yet</p>
+        )}
+        <button
+          className="bg-blue-500 text-white p-2 rounded-md mt-4"
+          onClick={handleSaveAttendance}
+          disabled={studentsList.length === 0 || attendanceType === null}
+        >
+          {isLoading ? (
             <>
               <svg
                 aria-hidden="true"
@@ -266,9 +266,9 @@ export default function Scan() {
           ) : (
             'Save Attendance'
           )}
-          </button>
-        </div>
+        </button>
       </div>
     </div>
+  </div>
   );
 }
