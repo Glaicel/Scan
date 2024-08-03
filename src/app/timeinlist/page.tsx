@@ -72,7 +72,7 @@ export default function Page() {
   return (
     <div>
       <Navbar />
-      <div className='flex items-center justify-center min-h-screen bg-gray-100 p-4'>
+      <div className='flex items-center justify-center bg-gray-100 p-4'>
         <div className="bg-white shadow-md rounded-lg p-4 w-full max-w-3xl">
           <h2 className="font-bold text-lg">Students Information</h2>
 
@@ -82,14 +82,14 @@ export default function Page() {
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="border rounded p-2 mr-2"
+                 className="border rounded p-2 mb-2 sm:mb-0"
               placeholder="Filter by Date"
             />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="border rounded p-2 mr-2"
+                 className="border rounded p-2 mb-2 sm:mb-0"
               placeholder="Search by Name"
             />
             <select
@@ -114,9 +114,6 @@ export default function Page() {
               ))}
             </ul>
           )}
-          <button className="bg-blue-500 text-white rounded py-2 px-4">
-            Send SMS
-          </button>
         </div>
       </div>
     </div>
